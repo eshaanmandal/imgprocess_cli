@@ -1,1 +1,1 @@
-# imgprocess_cli
+# A basic image process CLI tool
