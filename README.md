@@ -1,1 +1,2 @@
-# A basic image process CLI tool
+# IMG-PROCESS CLI
+a simple image processing cli tool for playing with images.
