@@ -105,34 +105,8 @@ IPCV(Image Processing and Computer Vision) class
 
 Enjoy and do whatever you want with this program. I mean just give me credits if you use my code, please :)
 """
+    
     return about_message
 
-def convolve(X : np.array, F: np.array):
-    # height and width of the image
-    X_height = X.shape[0]
-    X_width = X.shape[1]
-    
-    # height and width of the filter
-    F_height = F.shape[0]
-    F_width = F.shape[1]
-    
-    H = (F_height - 1) // 2
-    W = (F_width - 1) // 2
-    
-    #output numpy matrix with height and width
-    out = np.zeros((X_height, X_width))
-    #iterate over all the pixel of image X
-    for i in np.arange(H, X_height-H):
-        for j in np.arange(W, X_width-W):
-            sum = 0
-            #iterate over the filter
-            for k in np.arange(-H, H+1):
-                for l in np.arange(-W, W+1):
-                    #get the corresponding value from image and filter
-                    a = X[i+k, j+l]
-                    w = F[H+k, W+l]
-                    sum += (w * a)
-            out[i,j] = sum
-    #return convolution  
-    return out
+
     
