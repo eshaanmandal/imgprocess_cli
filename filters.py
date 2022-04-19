@@ -19,7 +19,6 @@ def sobel(img: np.array, channel, k_size=3):
     sobx = cv.Sobel(img, cv.CV_64F, 1, 0, k_size)
     soby = cv.Sobel(img, cv.CV_64F, 0, 1, k_size)
     sob = np.sqrt(np.power(sobx, 2) + np.power(soby, 2))
-    print(sob.shape)
     return (sob / np.max(sob)) * 255
 
 def prewitt(img: np.array, channel: int):
