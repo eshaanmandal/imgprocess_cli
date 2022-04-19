@@ -15,168 +15,124 @@ menu_1 = '''
     ------------------------------------
     |   MAIN MENU                      |
     |----------------------------------|
-    |    1. Enter image path (n/N)     |
-    |    2. Use sample images (d/D)    |
-    |    3. About this program (a/A)   |
-    |    4. Help (h/H)                 |
-    |    5. Exit(b/B)                  | 
+    |    1. Enter image path           |
+    |    2. Use sample images          |
+    |    3. About this program         |
+    |    4. Help                       |
+    |    5. Exit                       | 
     ------------------------------------
     '''
 menu_2 = '''
     ------------------------------------
     |   IMAGE OPTIONS                  |
     |----------------------------------|
-    |    1. Point Filters (p/P)        |
-    |    2. Filters (f/F)              |
-    |    3. View Image (v/V)           |
-    |    4. Convert to GrayScale(g/G)  |
-    |    5. Previous Menu (b/B)        |
-    ------------------------------------
-    '''
-menu_3 = '''
+    |    1. Convert to Grayscale       |
+    |    2. View Original Image        |
+    |    3. View Modified Image        |
+    |    4. Save As                    |
     ------------------------------------
     |   POINT OPERATIONS               |
     |----------------------------------|
-    |    1. Invert image(i/I)          |
-    |    2. Auto-contrast(a/A)         | 
-    |    3. Thresholding(t/T)          | 
-    |    4. Clipping(c/C)              |
-    |    5. Equalize(e/E)              |
-    |    6. Undo All Changes(u/U)      |
-    |    7. Go to previous menu(b/B)   | 
-    ------------------------------------
-    '''
-menu_4 = '''
+    |    5. Invert image               |
+    |    6. Auto-contrast              | 
+    |    7. Thresholding               | 
+    |    8. Clipping                   |
+    |    9. Equalize                   |
     ------------------------------------
     |   FILTERS                        |
     |----------------------------------|
-    |    1. Gaussian Blur (g/G)        |
-    |    2. Average Filter (a/A)       | 
-    |    3. Median Filter (m/M)        | 
-    |    4. Sobel Filter (s/S)         | 
-    |    5. Prewitt Filter (p/P)       | 
-    |    6. Laplacian Filter (l/L)     | 
-    |    7. Undo All Changes(u/U)      |            
-    |    8. Go to previous menu(b/B)   | 
+    |    10. Gaussian Blur             |
+    |    11. Average Filter            | 
+    |    12. Median Filter             | 
+    |    13. Sobel Filter              | 
+    |    14. Prewitt Filter            | 
+    |    15. Laplacian Filter          | 
+    |    16. Undo All Changes          |            
+    |    17. Go to previous menu       |  
     ------------------------------------
     '''
 
-menu_5 = '''
-    ------------------------------------
-    |   OPTIONS                        |
-    |----------------------------------|
-    |    1. Save Image(s/S)            |
-    |    2. Display Image(d/D)         |            
-    |    3. Go to previous menu(b/B)   | 
-    ------------------------------------
-    '''
-def image_options(img, channel):
-    while True:
-        print(menu_5)
-        choice = input("Choice(s/d/b)?").lower()
-        if choice == "s":
-            save_as = input("Save as (e.g. sample.jpg) : ")
-            save_path = "./saved_results"
-            if channel == 3:
-                cv.imwrite(os.path.join(save_path,save_as), cv.cvtColor(img, cv.COLOR_RGB2BGR)) 
-            else:
-                cv.imwrite(os.path.join(save_path,save_as))
-            print("Image saved")
-        elif choice == "d":
-            plt.imshow(img, cmap='gray')
-            plt.show()
-        elif choice == "b":
-            return
-        else:
-            print("Invaid choice")
-
-def options(img, channel) -> None:
+def options(img, channel):
     copy_of_image = np.copy(img)
     while True:
         print(menu_2)
-        choice = input("Choice(p/f/v/g/b)?").lower()
-        if choice == "p":
-            while True:
-                print(menu_3)
-                choice = input("Choice(i/a/t/c/e/b)?").lower()
-                if choice=="i":
-                    new_img = pOps.invert(img, channel)
-                    image_options(new_img, channel)
-                elif choice=="a":
-                    new_img = pOps.auto_contrast(img, channel)
-                    image_options(new_img,channel)
-                elif choice=="t":
-                    t_point = int(input("Threshold point: "))
-                    new_img = pOps.threshold(img, t_point)
-                    image_options(new_img, channel)
-                elif choice=="c":
-                    r1 = int(input("lower limit(r1): "))
-                    r2 = int(input("upper limit(r2): "))
-                    new_img = pOps.clipping(img, r1, r2)
-                    image_options(new_img, channel)
-                elif choice=="e":
-                    new_img = pOps.equalize(img, channel)
-                    image_options(new_img, channel)
-                elif choice=="b":
-                    break
-                elif choice == "u":
-                    img = np.copy(copy_of_image)
-                    image_options(img, channel)
-                else:
-                    print("invalid choice")
-
-        elif choice == "f":
-            while True:
-                print(menu_4)
-                choice = input("Choice(g/a/m/s/p/l/u/b)").lower()
-                if choice == "g":
-                    kerel_size = int(input("Kernel size :"))
-                    new_img = filters.gaussian(img, kerel_size)
-                    image_options(new_img, channel)
-                
-                elif choice == "a":
-                    kerel_size = int(input("Kernel size :"))
-                    new_img = filters.average_filter(img, kerel_size)
-                    image_options(new_img, channel)
-
-                elif choice == "m":
-                    kerel_size = int(input("Kernel size :"))
-                    new_img = filters.median_blur(img, kerel_size)
-                    image_options(new_img, channel)
-
-                elif choice == "s":
-                    kerel_size = int(input("Kernel size :"))
-                    new_img = filters.sobel(img, channel, kerel_size)
-                    image_options(new_img, channel)
-                elif choice == "p":
-                    new_img = filters.prewitt(img, channel)
-                    image_options(new_img, channel)
-                elif choice == "l":
-                    new_img = filters.laplacian(img, channel)
-                    image_options(new_img, channel)
-                elif choice == "u":
-                    img = np.copy(copy_of_image)
-                    image_options(img, channel)
-                elif choice=="b":
-                    break
-                else:
-                    print("invalid choice")
-
-        elif choice == "v":
-            plt.imshow(img, cmap='gray')
-            plt.show()
-
-        elif choice == "g":
+        choice = input("Choice(1/2/3....)?")
+        if choice == "1":
             img = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
             channel = 1
 
-        else:
+        elif choice == "2":
+            plt.imshow(copy_of_image, cmap='gray')
+            plt.show()
+        
+        elif choice == "3":
+            plt.imshow(img, cmap='gray')
+            plt.show()
+
+        elif choice == "4":
+            save_as = input("Save as (e.g. sample.jpg) : ")
+            save_path = "./saved_results"
+            if channel == 3:
+                cv.imwrite(os.path.join(save_path,save_as), img, cv.cvtColor(img, cv.COLOR_RGB2BGR)) 
+            else:
+                cv.imwrite(os.path.join(save_path,save_as), img)
+            print("Image saved")
+
+        elif choice =="5":
+            img = pOps.invert(img, channel)
+
+        elif choice=="6":
+            img = pOps.auto_contrast(img, channel)
+
+        elif choice=="7":
+            t_point = int(input("Threshold point: "))
+            img = pOps.threshold(img, t_point)
+
+        elif choice=="8":
+            r1 = int(input("lower limit(r1): "))
+            r2 = int(input("upper limit(r2): "))
+            img = pOps.clipping(img, r1, r2)
+
+        elif choice=="9":
+            img = pOps.equalize(img, channel)
+
+        elif choice == "10":
+            kernel_size = int(input("Kernel size :"))
+            img = filters.gaussian(img, kernel_size)
+                
+        elif choice == "11":
+            kernel_size = int(input("Kernel size :"))
+            img = filters.average_filter(img, kernel_size)
+
+        elif choice == "12":
+            kernel_size = int(input("Kernel size :"))
+            img = filters.median_blur(img, kernel_size)
+
+        elif choice == "13":
+            kernel_size = int(input("Kernel size :"))
+            img = filters.sobel(img, channel, kernel_size)
+
+        elif choice == "14":
+            img = filters.prewitt(img, channel)
+
+        elif choice == "15":
+            img = filters.laplacian(img, channel)
+
+        elif choice == "16":
+            img = np.copy(copy_of_image)
+            
+        elif choice == "16":
+            break
+        elif choice == "17":
             return
+        else:
+            print("invalid choice")
+        
 def main():
     while True:
         print(menu_1)
-        choice = input("Choice(n/d/a/h/b)? ").lower()
-        if choice == "n":
+        choice = input("Choice(1/2/3/4/5) ")
+        if choice == "1":
             path = input("Image Path :")
             channel,exists,img = helpers.load_image(path)
             if not exists:
@@ -185,7 +141,7 @@ def main():
             print("*****Image loaded successfully!*****")
             options(img, channel)
 
-        elif choice == "d":
+        elif choice == "2":
             path = "./sample_images/"
             print(os.listdir(path))
             choice = input("Choose an image from the following : ")
@@ -196,18 +152,17 @@ def main():
                 print("*****Image loaded successfully!*****")
                 options(img, channel)
         
-        elif choice == "a":
+        elif choice == "3":
             print(helpers.about())
         
-        elif choice == "h":
+        elif choice == "4":
             helpers.help_menu()
 
-        elif choice == "b":
+        elif choice == "5":
             break
 
         else:
             print("Invalid choice")
-
 
 if __name__=="__main__":
     main()
