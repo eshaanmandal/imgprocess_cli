@@ -34,23 +34,23 @@ def help_menu():
     '''Help message for using the program and also prints info about all the filters and point operations'''
     while True:
         message = '''
-        1. Why this program? (w/W)
-        2. How to use this program? (h/H)
-        3. About point operations (p/P)
-        4. About filters (f/F)
-        5. Go back to previous menu (b/B)
+        1. Why this program? 
+        2. How to use this program? 
+        3. About point operations 
+        4. About filters 
+        5. Go back to previous menu 
     '''
         print(message)
-        choice = input("Choice : ").lower()
-        if choice == "w":
+        choice = input("Choice : ")
+        if choice == "1":
             print(why)
-        elif choice == "h":
+        elif choice == "2":
             print(how)
-        elif choice == "p":
+        elif choice == "3":
             print(about_point_ops)
-        elif choice == "f":
+        elif choice == "4":
             print(about_filters)
-        elif choice == "b":
+        elif choice == "5":
             return
         else:
             print("Invalid choice")
