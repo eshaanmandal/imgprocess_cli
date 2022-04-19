@@ -57,10 +57,95 @@ def help_menu():
     
     
 def about():
-    about_message = '''
-    __author__ = "Eshaan Mandal"
-    __email__ = "eshaanmandal29@gmail.com"
-    '''
+    about_message = """
+       .                       
+       |`.                     
+       ;  `.                   
+       ; :. \           __     
+       ; ; \ \      .--"  \    
+       ; ;  ; ;     :      \   
+       ; ;  : :     ; ;     ;  
+       ' :   ; ;    ;::     :  
+        \ \  : ;--.-;; l     ; 
+         \ \  ;:    :;//'-.__: 
+         /\ \ ::____:::-\      
+        /  ).:+'""""""""=\     
+       :_,=""     /"-.    ;    
+       ;"       .'    `.  |    
+      :      .-^=    ==.\ |    
+      |  _.-".gp      gp:;:    
+      ;    /  $$      $$;: ;   
+     :    :  `--      --:  |   
+     ;    ;\        ,   '  |   
+    :    :  \      _   /   :   
+    ;    |   `.   `-' /     ;  
+   :     :    :`-.__.'      |  
+   ;          ;     :       |  
+  :     ...._/      '.__..  |  
+  ;   .'                  \ ;  
+ :   /                   _ Y   
+ ;  :         .g$$p.    d$$+.  
+ ;  ;     :.g$$$$$$$$p.d$$$$$b 
+ :  :     :$$$$$$$$$$$T$$$$$$$;
+  \  ;    ;$$$$S$$$$$$$S$$$$$P 
+   `.|    |$$$$S$$$$$$$S$$$$P  
+     |    |T$$$$$SSSSS$$$$$$   
+     :    | `T$$$$$$$$$$$$$;   
+      ;   |   $$$$$$$$$$$$$    
+      |   :   $$$$$$$$$$$$;    
+      :    ; d$$$$$$$$$$$$;    
+      |    :d$$$$$$$$$$$$$$    
+      ;    :"^T$$$$$$$$$$$$b   
+     :     ;   `T$$$$$$$$$$P;  
+     ;    :      `T$$$$$$$P :  
+     |    ;        T$$$$$P   ; 
+     |   :          T$$P'    ; 
+     :   ;           $'      : 
+    ._;__;           :       : 
+    ; ;  ;           |       : 
+    :_L__:           |       ; 
+    .'    ;          |       ; 
+  .'      :          |      :  
+ :/ _.-.  :;         |      |  
+ /.'    \ |:         |      ;  
+//  bug  ;| ;        |     :   
+`        `' :        |     |   
+             ;       |     ;   
+             :       |    :    
+              ;      |    |    
+              :      :    ;    
+              :    _.'-   ;    
+              ;     /:    :    
+             /     / ;     ;   
+            /     :  ;     :   
+           :      ;  ;     :   
+           ;     :  :      :   
+          :      ;  :      ;   
+          ;     :   ;     :    
+         :      ;   ;     ;    
+         ;     :    ;    :     
+         ;     ;    ;    ;     
+         ;    :     ;   :      
+         |    ;     ;   ;      
+         |   :      ;  :       
+         |   ;      ;  ;       
+         :  :       :  ;       
+         ;  :       :  :       
+        :    ,      ;   ;      
+        ;    ;      ;   :      
+       :     :      :    ;     
+       :     ;      :b__d$     
+       $b   d$       $$$$$     
+       :$bgd$;        T$P'     
+        T$$$P                  
+         '"'
+3477
+                           
+Made by Eshaan Mandal, a student ECE at TIET, during his 3rd year. He just wanted to put together everything he had learnt in his 
+IPCV(Image Processing and Computer Vision) class
+
+Enjoy and do whatever you want with this program. I mean just give me credits if you use my code, please :)
+"""
     return about_message
 
 def convolve(X : np.array, F: np.array):
