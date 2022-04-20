@@ -98,12 +98,12 @@ quu..__
               `',:                 :    .'
                                    `:.:'    
 
-The above artwork was shamelessly copied from the internet
+    The above artwork was shamelessly copied from the internet
 
-Made by Eshaan Mandal, a student of ECE at TIET, during his 3rd year. He just wanted to put together everything he had learnt in his 
-IPCV(Image Processing and Computer Vision) class
+    Made by Eshaan Mandal, a student of ECE at TIET, during his 3rd year. He just wanted to put together everything he had learnt in his 
+    IPCV(Image Processing and Computer Vision) class
 
-Enjoy and do whatever you want with this program. I mean just give me credits if you use my code, please :)
+    Enjoy and do whatever you want with this program. I mean just give me credits if you use my code, please :)
 """
     
     return about_message
