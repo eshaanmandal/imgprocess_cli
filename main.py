@@ -54,6 +54,7 @@ menu_2 = '''
 
 def options(img, channel):
     copy_of_image = np.copy(img)
+    copy_of_channels = channel
     while True:
         print(menu_2)
         choice = input("Choice(1/2/3....)?")
@@ -120,6 +121,7 @@ def options(img, channel):
 
         elif choice == "16":
             img = np.copy(copy_of_image)
+            channel = copy_of_channels
             
         elif choice == "16":
             break
