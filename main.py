@@ -74,9 +74,9 @@ def options(img, channel):
             save_as = input("Save as (e.g. sample.jpg) : ")
             save_path = "./saved_results"
             if channel == 3:
-                cv.imwrite(os.path.join(save_path,save_as), img, cv.cvtColor(img, cv.COLOR_RGB2BGR)) 
+                plt.imsave(os.path.join(save_path, save_as), img) 
             else:
-                cv.imwrite(os.path.join(save_path,save_as), img)
+                plt.imsave(os.path.join(save_path, save_as), img) 
             print("Image saved")
 
         elif choice =="5":
